@@ -13,8 +13,8 @@ import java.util.Random;
 public class BlueArrowEnemy {
     private float x, y;
     private Sprite theEnemy;
-    private float horizontalMovement = 5f;
-    private float diagonalMovement = 3.5f;
+    private float horizontalMovement = 7f;
+    private float diagonalMovement = 5f;
     private int rotation;
     private SpriteBatch batch;
     private int distanceFromMainX;
@@ -30,8 +30,7 @@ public class BlueArrowEnemy {
 
     public BlueArrowEnemy() {
         batch = new SpriteBatch();
-        Texture tempTexture = new Texture(Gdx.files.internal("data/triangleEnemy.png"));
-        theEnemy = new Sprite(tempTexture);
+        theEnemy = new Sprite(new Texture(Gdx.files.internal("data/triangleEnemy.png")));
         //set random x
         Random randGen = new Random();
         boolean topBar = randGen.nextBoolean(); //renders enemy at top bar or side bars

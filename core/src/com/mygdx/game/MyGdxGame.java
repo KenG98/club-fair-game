@@ -14,8 +14,9 @@ public class MyGdxGame extends ApplicationAdapter {
     private int charRotation = 0;
     private boolean upKey, downKey, rightKey, leftKey, currentlyWalking;
     private ArrayList<BlueArrowEnemy> blueEnemies = new ArrayList<BlueArrowEnemy>();
-    private int waveNumber = 10;
+    private int waveNumber = 1;
     private boolean gameOver = false;
+    private Gem theGem;
 
 
     public MyGdxGame() {
@@ -32,6 +33,8 @@ public class MyGdxGame extends ApplicationAdapter {
         for(int i = 0; i < waveNumber; i++){
             blueEnemies.add(new BlueArrowEnemy());
         }
+
+        theGem = new Gem();
     }
 
     @Override
@@ -64,6 +67,27 @@ public class MyGdxGame extends ApplicationAdapter {
         mainchar.draw(charRotation, currentlyWalking);
 
         allEnemies();
+
+        theGem.draw();
+
+        boolean gotGem = theGem.gemIsGotten(mainchar.getX(), mainchar.getY());
+        if (gotGem){
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            theGem = new Gem();
+            blueEnemies.add(new BlueArrowEnemy());
+            blueEnemies.clear();
+            mainchar = new MainCharacter();
+            waveNumber++;
+            for(int i = 0; i < waveNumber ; i++){
+                blueEnemies.add(new BlueArrowEnemy());
+
+            }
+        }
+
 
         try {
             Thread.sleep((long)(1000/30-Gdx.graphics.getDeltaTime()));

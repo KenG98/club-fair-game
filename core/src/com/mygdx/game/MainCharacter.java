@@ -34,7 +34,7 @@ public class MainCharacter {
 
     public MainCharacter() {
         //all the setup
-        x = 200;
+        x = 300;
         y = 200;
         batch = new SpriteBatch();
         //generate movement (animation)
