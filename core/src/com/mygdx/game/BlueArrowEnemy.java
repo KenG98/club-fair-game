@@ -34,17 +34,16 @@ public class BlueArrowEnemy {
         //set random x
         Random randGen = new Random();
         boolean topBar = randGen.nextBoolean(); //renders enemy at top bar or side bars
-        if(topBar){
+        if (topBar) {
             x = randGen.nextInt(660) - 10;
             boolean upSide = randGen.nextBoolean(); //upper or lower bar
             y = randGen.nextInt(20) - 10;
-            if(upSide) y += 480;
-        }
-        else {
+            if (upSide) y += 480;
+        } else {
             y = randGen.nextInt(500) - 10;
             boolean rightSide = randGen.nextBoolean();
             x = randGen.nextInt(20) - 10;
-            if(rightSide) x += 640;
+            if (rightSide) x += 640;
         }
 
         theEnemy.setPosition(x, y);
@@ -94,13 +93,11 @@ public class BlueArrowEnemy {
         } else if (moveDiagonal) {
             if (mainIsAbove) {
                 y += diagonalMovement;
-                if(mainIsToRight) rotation = 135;
+                if (mainIsToRight) rotation = 135;
                 else rotation = 225;
-            }
-
-            else {
+            } else {
                 y -= diagonalMovement;
-                if(mainIsToRight) rotation = 45;
+                if (mainIsToRight) rotation = 45;
                 else rotation = 315;
             }
 
@@ -116,7 +113,7 @@ public class BlueArrowEnemy {
 
     }
 
-    public boolean didCapture(){
+    public boolean didCapture() {
         return capturedMain;
     }
 

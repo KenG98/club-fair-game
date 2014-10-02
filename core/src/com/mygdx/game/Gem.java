@@ -11,19 +11,19 @@ import java.util.Random;
  * Created by kengarber on 10/1/14.
  */
 public class Gem {
-    private int x,y;
+    private int x, y;
     private boolean isGotten;
     private SpriteBatch batch;
     private Sprite gemSprite;
 
 
-    public Gem(){
+    public Gem() {
         batch = new SpriteBatch();
         gemSprite = new Sprite((new Texture(Gdx.files.internal("data/gem2.png"))));
         //place the gem on creation
         Random randGen = new Random();
         int locationToPlace = randGen.nextInt(3);
-        switch (locationToPlace){
+        switch (locationToPlace) {
             case 0:
                 x = 40;
                 y = 40;
@@ -42,16 +42,16 @@ public class Gem {
         }
     }
 
-    public void checkIfGotten(int mainX, int mainY){
-        if (Math.abs(x-mainX) < 32 && Math.abs(y-mainY) < 32) isGotten = true;
+    public void checkIfGotten(int mainX, int mainY) {
+        if (Math.abs(x - mainX) < 32 && Math.abs(y - mainY) < 32) isGotten = true;
     }
 
-    public boolean gemIsGotten(int mainX, int mainY){
+    public boolean gemIsGotten(int mainX, int mainY) {
         checkIfGotten(mainX, mainY);
         return isGotten;
     }
 
-    public void draw(){
+    public void draw() {
         batch.begin();
         gemSprite.setPosition(x, y);
         gemSprite.draw(batch);

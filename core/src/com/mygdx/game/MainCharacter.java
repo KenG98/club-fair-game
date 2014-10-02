@@ -38,7 +38,7 @@ public class MainCharacter {
         y = 200;
         batch = new SpriteBatch();
         //generate movement (animation)
-        walkSheet = new Texture(Gdx.files.internal("data/walksheet3.png"));
+        walkSheet = new Texture(Gdx.files.internal("data/ballroll2.png")); //walksheet3.png  ballroll2.png for pokemon sprite
         TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / 4, walkSheet.getHeight());
         walkFrames = new TextureRegion[4];
         int index = 0;
@@ -98,7 +98,7 @@ public class MainCharacter {
         }
         batch.end();
 
-        if(x > 700 || x < -40 || y > 520 || y < -40) outOfBounds = true;
+        if (x > 700 || x < -40 || y > 520 || y < -40) outOfBounds = true;
     }
 
 }
