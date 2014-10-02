@@ -1,11 +1,9 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.*;
 
 /**
  * Created by kengarber on 9/29/14.
@@ -22,6 +20,8 @@ public class MainCharacter {
     private int horizontalMovement = 9;
     private int diagonalMovement = 6;
     private boolean outOfBounds = false;
+    private BitmapFont gameStats;
+    private int gemsGotten = 0;
 
 
     public int getX() {
@@ -32,7 +32,7 @@ public class MainCharacter {
         return y;
     }
 
-    public MainCharacter() {
+    public MainCharacter(int waveNumber) {
         //all the setup
         x = 300;
         y = 200;
@@ -49,10 +49,15 @@ public class MainCharacter {
         stateTime = 0f;
         //generate standing image (sprite)
         standSprite = new Sprite(walkFrames[1]);
+        gameStats = new BitmapFont();
+        gameStats.setColor(Color.RED);
+        gemsGotten = waveNumber - 1;
     }
+
 
     public void draw(int rotation, boolean walking) {
         batch.begin();
+        gameStats.draw(batch, "Gems: " + gemsGotten, 570, 470);
         stateTime += Gdx.graphics.getDeltaTime();
         if (walking) {
             currentFrame = mainWalking.getKeyFrame(stateTime, true);
@@ -98,7 +103,10 @@ public class MainCharacter {
         }
         batch.end();
 
-        if (x > 700 || x < -40 || y > 520 || y < -40) outOfBounds = true;
+        if(x > 630) x = 630;
+        if(x < -50) x = -50;
+        if(y > 470) y = 470;
+        if(y < -50) y = -50;
     }
 
 }
