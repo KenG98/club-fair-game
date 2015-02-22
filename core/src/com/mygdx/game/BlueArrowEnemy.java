@@ -35,15 +35,15 @@ public class BlueArrowEnemy {
         Random randGen = new Random();
         boolean topBar = randGen.nextBoolean(); //renders enemy at top bar or side bars
         if (topBar) {
-            x = randGen.nextInt(660) - 10;
+            x = randGen.nextInt(920) - 10;
             boolean upSide = randGen.nextBoolean(); //upper or lower bar
             y = randGen.nextInt(20) - 10;
-            if (upSide) y += 480;
+            if (upSide) y += 600;
         } else {
-            y = randGen.nextInt(500) - 10;
+            y = randGen.nextInt(620) - 10;
             boolean rightSide = randGen.nextBoolean();
             x = randGen.nextInt(20) - 10;
-            if (rightSide) x += 640;
+            if (rightSide) x += 900;
         }
 
         theEnemy.setPosition(x, y);

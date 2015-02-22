@@ -34,8 +34,8 @@ public class MainCharacter {
 
     public MainCharacter(int waveNumber) {
         //all the setup
-        x = 300;
-        y = 200;
+        x = 450;
+        y = 300;
         batch = new SpriteBatch();
         //generate movement (animation)
         walkSheet = new Texture(Gdx.files.internal("data/ballroll2.png")); //walksheet3.png  ballroll2.png for pokemon sprite
@@ -57,7 +57,7 @@ public class MainCharacter {
 
     public void draw(int rotation, boolean walking) {
         batch.begin();
-        gameStats.draw(batch, "Gems: " + gemsGotten, 570, 470);
+        gameStats.draw(batch, "Gems: " + gemsGotten, 830, 590);
         stateTime += Gdx.graphics.getDeltaTime();
         if (walking) {
             currentFrame = mainWalking.getKeyFrame(stateTime, true);
@@ -103,9 +103,9 @@ public class MainCharacter {
         }
         batch.end();
 
-        if(x > 630) x = 630;
+        if(x > 890) x = 890;
         if(x < -50) x = -50;
-        if(y > 470) y = 470;
+        if(y > 590) y = 590;
         if(y < -50) y = -50;
     }
 

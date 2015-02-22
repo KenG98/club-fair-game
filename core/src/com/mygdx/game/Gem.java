@@ -30,15 +30,15 @@ public class Gem {
                 break;
             case 1:
                 x = 40;
-                y = 440;
+                y = 560;
                 break;
             case 2:
-                x = 600;
+                x = 840;
                 y = 40;
                 break;
             case 3:
-                x = 600;
-                y = 440;
+                x = 840;
+                y = 560;
         }
     }
 
